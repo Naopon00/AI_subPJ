@@ -16,6 +16,42 @@ balloon = st.sidebar.button("風船を表示")
 if balloon:
     st.balloons()
 
+st.sidebar.write("じゃんけん")
+hands = ['グー', 'チョキ', 'パー']
+option = st.sidebar.selectbox(
+    'じゃんけんの手',
+    hands
+)
+myhand = 0
+for l in range(3):
+    if option == hands[l]:
+        myhand = l
+
+handbutton = st.sidebar.button('じゃんけんをする')
+if handbutton:
+    hand = random.randint(0, 2)
+    if myhand == hand:
+        st.sidebar.write("CPUの手：", hands[hand])
+        st.sidebar.write('あいこです')
+    elif myhand == 0 and hand == 1:
+        st.sidebar.write("CPUの手：", hands[hand])
+        st.sidebar.write("あなたの勝ちです")
+    elif myhand == 0 and hand == 2:
+        st.sidebar.write("CPUの手：", hands[hand])
+        st.sidebar.write("あなたの負けです")
+    elif myhand == 1 and hand == 0:
+        st.sidebar.write("CPUの手：", hands[hand])
+        st.sidebar.write("あなたの負けです")
+    elif myhand == 1 and hand == 2:
+        st.sidebar.write("CPUの手：", hands[hand])
+        st.sidebar.write("あなたの勝ちです")
+    elif myhand == 2 and hand == 0:
+        st.sidebar.write("CPUの手：", hands[hand])
+        st.sidebar.write("あなたの勝ちです")
+    elif myhand == 2 and hand == 1:
+        st.sidebar.write("CPUの手：", hands[hand])
+        st.sidebar.write("あなたの負けです")
+
 if start_button:
     bar.progress(0)
     for i in range(100):
